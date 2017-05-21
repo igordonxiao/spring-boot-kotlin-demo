@@ -41,7 +41,7 @@ compileKotlin {
 
 repositories {
     mavenCentral()
-    mavenLocal()
+    jcenter()
 }
 
 task createSourceDir {
@@ -56,11 +56,6 @@ task createSourceDir {
 
 configurations {
     dev
-}
-
-repositories {
-    mavenCentral()
-    jcenter()
 }
 
 dependencies {
