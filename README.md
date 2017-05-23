@@ -11,3 +11,9 @@ open a new command window with:
 ### Step three
 access with:
 `http://localhost:8080`
+
+### Run with Debug
+`gradle bootRun --debug-jvm`    
+Above command can be used remote debug with idea, the default port is 5005
+
+### Run with Vagrant or Docker can reference file `initUbuntuEnv`
