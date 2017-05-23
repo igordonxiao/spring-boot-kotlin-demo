@@ -71,10 +71,6 @@ export PATH=${JAVA_HOME}/bin:/opt/gradle/gradle-3.5/bin:$PATH
 
 if wanna open remote debug, when docker run should add port `-p 5000:5005`, exec above two commands, then exec command below:
 
-* docker exec -it [containerID] bash
-
-* cd /demo
-
 * gradle bootRun --debug-jvm
 
 * config in IDEA and debug

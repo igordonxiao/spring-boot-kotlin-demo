@@ -19,5 +19,9 @@ open class MainController {
 
     @RequestMapping
     @ResponseBody
-    fun main() = "main"
+    fun main(): String {
+        println("aaaaa")
+        println("bssssbbbb")
+        return "main"
+    }
 }
