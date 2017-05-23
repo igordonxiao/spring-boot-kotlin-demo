@@ -57,7 +57,7 @@ export PATH=${JAVA_HOME}/bin:/opt/gradle/gradle-3.5/bin:$PATH
 * docker commit --author "igordonxiao" --message "installed gradle" 0572c8684bf4 ubuntujava:v3
 
 ## the end finally:
-* docker run -it -p 8080:8080 -v /Users/gordon/Documents/javaproject/spring-boot-kotlin-demo:/demo ubuntujava:v3 bash
+* docker run -it -p 8000:8080 -v /Users/gordon/Documents/javaproject/spring-boot-kotlin-demo:/demo ubuntujava:v3 bash
 
 * cd /demo
 
@@ -67,5 +67,16 @@ export PATH=${JAVA_HOME}/bin:/opt/gradle/gradle-3.5/bin:$PATH
 
 * cd /demo
 
+* gradle bootRun
+
+if wanna open remote debug, when docker run should add port `-p 5000:5005`, exec above two commands, then exec command below:
+
+* docker exec -it [containerID] bash
+
+* cd /demo
+
 * gradle bootRun --debug-jvm
+
+* config in IDEA and debug
+
 
