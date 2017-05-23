@@ -42,6 +42,7 @@ Above command can be used remote debug with idea, the default port is 5005
 * docker run -it -p 8080 -v /Users/gordon/Documents/javaproject/spring-boot-kotlin-demo:/demo ubuntujava:v2 bash
 
 ## install gradle
+
 * download gradle to local directory `/Users/gordon/Downloads`
 * docker run -it -v /Users/gordon/Downloads:/soft ubuntujava:v2 bash
 * cd /soft
@@ -57,24 +58,18 @@ export PATH=${JAVA_HOME}/bin:/opt/gradle/gradle-3.5/bin:$PATH
 * docker commit --author "igordonxiao" --message "installed gradle" 0572c8684bf4 ubuntujava:v3
 
 ## the end finally:
+
 * docker run -it -p 8000:8080 -v /Users/gordon/Documents/javaproject/spring-boot-kotlin-demo:/demo ubuntujava:v3 bash
-
 * cd /demo
-
 * gradle build --continuous
-
 * docker exec -it [containerID] bash
-
 * cd /demo
-
 * gradle bootRun
 
 if wanna open remote debug, when docker run should add port `-p 5000:5005`, exec above two commands, then exec command below:
 
 * docker run -it -p 8000:8080 -p 5000:5005 -v /Users/gordon/Documents/javaproject/spring-boot-kotlin-demo:/demo ubuntujava:v3 bash
-
 * gradle bootRun --debug-jvm
-
 * config in IDEA and debug, in IDEA, add a new remote, the Host is `localhost`, port is `5000`, then click the `debug` button
 
 
