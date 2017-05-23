@@ -2,6 +2,7 @@ package io.github.igordonxiao.springboot.kotlin.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
@@ -10,7 +11,9 @@ open class IndexController {
 
     @RequestMapping
     @ResponseBody
-    fun index() = "index"
+    fun index(@RequestParam(required = false) name: String?): String {
+        return "Hello ${name ?: "Gordon"}"
+    }
 }
 
 @Controller
@@ -19,9 +22,5 @@ open class MainController {
 
     @RequestMapping
     @ResponseBody
-    fun main(): String {
-        println("aaaaa")
-        println("bssssbbbb")
-        return "main"
-    }
+    fun main() = "main"
 }
