@@ -1,5 +1,7 @@
 package io.github.igordonxiao.springboot.kotlin.controller
 
+import io.github.igordonxiao.springboot.kotlin.dao.IUserRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -7,12 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
 @RequestMapping("/")
-open class IndexController {
+open class IndexController @Autowired constructor(val userRepository: IUserRepository) {
 
     @RequestMapping
     @ResponseBody
-    fun index(@RequestParam(required = false) name: String?): String {
-        return "Hello ${name ?: "Gordon"}"
+    fun index(): String {
+        val user = userRepository.findOne(1)
+        return "Hello ${user.name}"
     }
 }
 

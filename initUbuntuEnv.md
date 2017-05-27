@@ -1,3 +1,30 @@
+# Create Database in Postgres
+* CREATE DATABASE springbootdemo
+  WITH OWNER = postgres
+     ENCODING = 'UTF8'
+     TABLESPACE = pg_default
+     CONNECTION LIMIT = -1
+     TEMPLATE template0;
+     ﻿
+  COMMENT ON DATABASE springbootdemo
+         IS 'spring boot demo';
+
+* ﻿CREATE TABLE public."user"
+  (
+      id bigint NOT NULL,
+      name text COLLATE pg_catalog."default",
+      CONSTRAINT user_pkey PRIMARY KEY (id)
+  )
+  WITH (
+      OIDS = FALSE
+  )
+  TABLESPACE pg_default;
+
+  ﻿ALTER TABLE public."user"
+      OWNER to postgres;
+
+* INSERT INTO public.user(id, name) VALUES(1, 'Gordon');
+
 # build & run with Vagrant
 ## init ubuntu
 ### update mirrors
